@@ -21,7 +21,7 @@ public class Post {
 	}
 
 	public String getContent() {
-		return this.content;
+		return content;
 	}
 
 	@Override
