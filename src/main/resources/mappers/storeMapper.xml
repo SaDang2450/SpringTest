@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		resultType="com.sadang.spring.test.database.domain.StoreRow">
 		SELECT
 		`id`
-		, `name`
+		,`name`
 		,`phoneNumber`
 		,`address`
 		,`businessNumber`
