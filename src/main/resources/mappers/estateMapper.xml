@@ -26,7 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 	</select>
 
-	<select id="selectEstateRent"
+	<select id="selectEstateRent" parameterType="int"
 		resultType="com.sadang.spring.test.mybatis.domain.Estate">
 	
 		SELECT
@@ -46,7 +46,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 	</select>
 	
-	<select id="selectEstateAreaPrice"
+	<select id="selectEstateAreaPrice" parameterType="map"
 		resultType="com.sadang.spring.test.mybatis.domain.Estate">
 		
 		SELECT
@@ -66,4 +66,61 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		ORDER BY `createdAt` DESC
 			
 	</select>
+	
+	<insert id="insertEstateByObject" parameterType="com.sadang.spring.test.mybatis.domain.Estate">
+		INSERT INTO `real_estate`
+		(
+			`realtorId`
+			, `address`
+			, `area`
+			, `type`
+			, `price`
+		)
+		VALUE
+		(
+			#{realtorId}
+			, #{address}
+			, #{area}
+			, #{type}
+			, #{price}
+		)
+	
+	</insert>
+	
+	<insert id="insertEstate" parameterType="map">
+		INSERT INTO `real_estate`
+		(
+			`realtorId`
+			, `address`
+			, `area`
+			, `type`
+			, `price`
+			, `rentPrice`
+		)
+		VALUE
+		(
+			#{realtorId}
+			, #{address}
+			, #{area}
+			, #{type}
+			, #{price}
+			, #{rentPrice}
+		)
+		
+	</insert>
+	
+	<update id="updateEstate" parameterType="map">
+		UPDATE `real_estate`
+		SET
+			`type` = #{type}
+			,`price` = #{price}
+		WHERE
+			`id`= #{id}
+	</update>
+	
+	<delete id="deleteEstate" parameterType="int">
+		DELETE FROM `real_estate`
+		WHERE `id` = #{id}
+	
+	</delete>
 </mapper>

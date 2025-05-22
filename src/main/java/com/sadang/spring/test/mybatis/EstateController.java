@@ -34,8 +34,54 @@ public class EstateController {
 	@RequestMapping("/select/3")
 	public List<Estate> resultEstateAreaPrice(@RequestParam("area") int area, @RequestParam("price") int price) {
 		List<Estate> resultEstate = estateService.getEstateAreaPrice(area, price);
-		
+
 		return resultEstate;
 	}
 
+	@RequestMapping("/insert/1")
+	public String createEstateByObject() {
+		Estate estate = new Estate();
+		estate.setRealtorId(3);
+		estate.setAddress("푸르지용 리버 303동 1104호");
+		estate.setArea(89);
+		estate.setType("매매");
+		estate.setPrice(100000);
+
+		int resultCreate = estateService.addEstateByObject(estate);
+
+		return "입력 성공 : " + resultCreate;
+	}
+
+	@RequestMapping("/insert/2")
+	public String createEstate(@RequestParam("realtorid") int realtorId) {
+		String address = "썅떼빌리버 오피스텔 814호";
+		int area = 45;
+		String type = "월세";
+		int price = 100000;
+		int rentPrice = 120;
+
+		int resultCreate = estateService.addEstate(realtorId, address, area, type, price, rentPrice);
+
+		return "입력 성공 : " + resultCreate;
+	}
+
+	@RequestMapping("/update/1")
+	public String modifyEstate() {
+		int id = 22;
+		String type = "전세";
+		int price = 70000;
+
+		int resultModify = estateService.updateEstate(id, type, price);
+
+		return "수정 성공 : " + resultModify;
+	}
+	
+	@RequestMapping("/delete/1")
+	public String eraseEstate() {
+		int id = 23;
+		
+		int resultErase = estateService.deleteEstate(id);
+		
+		return "삭제 결과 : " + resultErase;
+	}
 }
