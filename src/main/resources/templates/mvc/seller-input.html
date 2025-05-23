@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<title>판매자 추가</title>
+</head>
+<body>
+	<div class="container">	
+		<h1> 판매자 추가</h1>
+		<form method="post" action="/mvc/test/insert/result">
+			<label>닉네임</label><br>
+			<input type="text" name="nickname" class="form-control col-2" >
+			<label>프로필 사진 url</label><br>
+			<input type="text" name="url" class="form-control col-6">
+			<label>온도</label><br>
+			<input type="text" name="temperature" class="form-control col-2">
+			<button type="submit" class="btn btn-primary mt-3">추가</button>
+		</form>
+		
+	</div>
+</body>
+</html>
